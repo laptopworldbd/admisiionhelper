@@ -1,41 +1,28 @@
-<?php
-include("design.php");
-?>
+<form action="noticephp.php" method="post">
+   		 <center><b>INPUT NOTICE</b></center>
+			
+	        <div class="form-group">
+	        	<input type="text" name="uname" value="" class="form-control" placeholder="University Name:">
+	        </div><br>
 
-<br>
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style> 
-input[type=text] {
-  width: 130px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-image: url('searchicon.png');
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 20px 12px 40px;
-  -webkit-transition: width 0.4s ease-in-out;
-  transition: width 0.4s ease-in-out;
-}
+	        <div class="form-group">
+	        	<input type="text" name="subject" value="" class="form-control" placeholder="Subject:">
+	        </div><br>
+	        <div class="form-group" >
+	        <input type="longtext" name="comment1" form="usrform" placeholder="Enter text here...">
+	    </div><br>
+	        
+	        <div class="form-group" >
+	        	Date :<br>
+	         	<input type="Date" name="date" value="" class="" placeholder="Admission Date:" >
+	        </div>
+	        
+	        <div class="form-group">
+	        	<input type="varchar" name="link" value="" class="form-control" placeholder="Link:">
+	        </div>
+	        
+              <br>
 
-input[type=text]:focus {
-  width: 100%;
-}
-</style>
-</head>
-<body>
-
-
-<form>
-  <input type="text" name="search" placeholder="Search......">
-</form>
-
-
-
-</body>
-</html>
+			<input type="submit" name="submit2" class="btn btn-danger" value="Add">
+   			<a href = "logout.php"class="btn btn-danger">Logout</a>
+           </form>
