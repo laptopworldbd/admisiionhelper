@@ -1,9 +1,23 @@
 <?php
 include("design.php");
+$conn=mysqli_connect("localhost","root","","admissionhelperadmin");
+if(isset($_POST['search'])) {
+  $searchkey = $_POST['search'];
+  $sql = "SELECT* FROM noticeboard WHERE uname LIKE '%$searchkey%'";
+}else{
+  $sql = "SELECT * FROM noticeboard";
+  $searchkey = "";
+}
+
+
 
 ?>
 
+<br>
+<!DOCTYPE html>
+<html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style> 
 input[type=text] {
   width: 130px;
@@ -40,9 +54,18 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-
 </head>
 <body>
+
+
+
+
+<form method="POST" action="search.php">
+  <input type="text" name="search" placeholder="Search By University Name..." value="<?php echo $searchkey; ?>"><br>
+  <button type="submit" name="submit">Search Now</button>
+</form>
+
+
 <table>
   <thead>
   <tr>
@@ -55,17 +78,7 @@ tr:nth-child(even) {
   </thead>
   <tbody>
     <?php
-    $conn=mysqli_connect("localhost","root","","admissionhelperadmin");
-if(isset($_POST['search'])) {
-  $searchkey = $_POST['search'];
-  $sql = "SELECT* FROM noticeboard WHERE uname LIKE '%$searchkey%'";
-}else{
-  $sql = "SELECT * FROM noticeboard";
-  $searchkey = "";
-}
-
-
-
+    $sql="SELECT * from noticeboard ";
     $result=$conn ->query($sql);
     if ($result -> num_rows >0) {
       while ($row=$result ->fetch_assoc()) {
@@ -84,4 +97,7 @@ if(isset($_POST['search'])) {
   ?>
   </tbody>
 </table><br>
+
+
 </body>
+</html>
